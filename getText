@@ -1,0 +1,15 @@
+// get text from a file and add it to an element via id
+
+function getText(file, id) {
+    var xhr = new XMLHttpRequest();
+    var element = document.getElementById(id);
+    xhr.open('GET', file, true);
+    xhr.onload = function () {
+        if (this.status === 200) {
+            element.innerHTML = xhr.responseText;
+        } else {
+            element.innerHTML = "couldn't get the text";
+        }
+    };
+    xhr.send();
+}
